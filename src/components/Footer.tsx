@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <Image src="/logo.svg" alt="Rebel and Bird" width={28} height={18} className="logo-glow" />
+              <Image src="/logo.svg" alt="Rebel and Bird" width={28} height={18} className="opacity-90" />
               <span className="font-[family-name:var(--font-orbitron)] text-xs font-700 tracking-[0.2em] uppercase text-white/60">
                 Rebel&nbsp;&amp;&nbsp;Bird
               </span>
@@ -58,7 +58,7 @@ export default function Footer() {
             </p>
             <a
               href="mailto:hello@rebelandbird.com"
-              className="font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.1em] text-[#00f5ff] hover:glow-cyan transition-all block mb-6"
+              className="font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.1em] text-[#00f5ff] hover:text-white transition-colors block mb-6"
             >
               hello@rebelandbird.com
             </a>

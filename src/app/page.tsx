@@ -58,7 +58,9 @@ export default function Home() {
       <main>
 
         {/* ── HERO ─────────────────────────────────────── */}
-        <section className="hero-grid scanlines relative min-h-screen flex flex-col justify-center px-6 pt-16">
+        <section className="scanlines relative min-h-screen flex flex-col justify-center px-6 pt-16 overflow-hidden">
+          {/* Retrowave perspective grid floor */}
+          <div className="retro-grid-floor" />
 
           {/* Top status bar */}
           <div className="absolute top-20 left-0 right-0 px-6 max-w-7xl mx-auto w-full">
@@ -79,7 +81,7 @@ export default function Home() {
           {/* Main hero content */}
           <div className="max-w-7xl mx-auto w-full mt-20">
 
-            <p className="font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.3em] text-[#ff2d78] glow-pink mb-6 uppercase">
+            <p className="font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.3em] text-[#ff2d78] mb-6 uppercase">
               ▶ &nbsp; Agentic-first studio &nbsp; — &nbsp; Stockholm
             </p>
 
@@ -88,11 +90,11 @@ export default function Home() {
               style={{ fontSize: "clamp(2.8rem, 9vw, 8rem)" }}
             >
               <span className="block text-white">Vi designar</span>
-              <span className="block glow-pink" style={{ color: "#ff2d78" }}>
+              <span className="block" style={{ color: "#ff2d78" }}>
                 upplevelser
               </span>
               <span className="block text-white/90">som spelar</span>
-              <span className="block glow-cyan cursor" style={{ color: "#00f5ff" }}>
+              <span className="block cursor" style={{ color: "#00f5ff" }}>
                 roll
               </span>
             </h1>
@@ -126,7 +128,7 @@ export default function Home() {
 
             <div className="flex items-end justify-between mb-12">
               <div>
-                <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#ff2d78] glow-pink mb-3">
+                <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#ff2d78] mb-3">
                   [02] &nbsp; UTVALDA UPPDRAG
                 </p>
                 <h2
@@ -138,7 +140,7 @@ export default function Home() {
               </div>
               <Link
                 href="/vara-uppdrag"
-                className="hidden md:inline font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.12em] uppercase text-[#00f5ff] hover:glow-cyan transition-all"
+                className="hidden md:inline font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.12em] uppercase text-[#00f5ff] transition-all"
               >
                 Alla uppdrag &nbsp; ▶
               </Link>
@@ -202,7 +204,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
               <div>
-                <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#00f5ff] glow-cyan mb-3">
+                <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#00f5ff] mb-3">
                   [03] &nbsp; VAD VI GÖR
                 </p>
                 <h2
@@ -210,7 +212,7 @@ export default function Home() {
                   style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)" }}
                 >
                   Välj ditt<br />
-                  <span className="text-[#00f5ff] glow-cyan">nästa drag</span>
+                  <span className="text-[#00f5ff]">nästa drag</span>
                 </h2>
                 <p className="text-white/50 leading-relaxed mb-8">
                   Oavsett om du behöver en komplett digital transformation
@@ -249,7 +251,7 @@ export default function Home() {
         <section className="px-6 py-24">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl">
-              <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#b24bff] glow-purple mb-3">
+              <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#b24bff] mb-3">
                 [04] &nbsp; OM OSS
               </p>
               <h2
@@ -257,9 +259,9 @@ export default function Home() {
                 style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)" }}
               >
                 Vi är ett team av{" "}
-                <span className="text-[#b24bff] glow-purple">rebeller</span>
+                <span className="text-[#b24bff]">rebeller</span>
                 {" "}och{" "}
-                <span className="text-[#ff2d78] glow-pink">fåglar</span>
+                <span className="text-[#ff2d78]">fåglar</span>
               </h2>
               <p className="text-white/50 text-lg leading-relaxed mb-4 max-w-2xl">
                 Rebel and Bird är ett digitalt designstudio med bas i Stockholm.
@@ -281,13 +283,13 @@ export default function Home() {
         {/* ── CTA ──────────────────────────────────────── */}
         <section className="px-6 py-32">
           <div className="max-w-7xl mx-auto">
-            <div className="card-arcade box-glow-pink p-12 md:p-20 text-center relative overflow-hidden">
+            <div className="card-arcade p-12 md:p-20 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#ff2d78]/5 via-transparent to-[#b24bff]/5 pointer-events-none" />
-              <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#ff2d78] glow-pink mb-4 relative">
+              <p className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.3em] text-[#ff2d78] mb-4 relative">
                 [05] &nbsp; GAME OVER?
               </p>
               <h2
-                className="font-[family-name:var(--font-orbitron)] font-black uppercase glow-pink relative mb-6"
+                className="font-[family-name:var(--font-orbitron)] font-black uppercase relative mb-6"
                 style={{ fontSize: "clamp(2rem, 6vw, 5rem)", color: "#ff2d78" }}
               >
                 Redo att spela?

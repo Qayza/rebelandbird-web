@@ -25,7 +25,7 @@ export default function Nav() {
             alt="Rebel and Bird"
             width={32}
             height={21}
-            className="logo-glow"
+            className="opacity-90"
           />
           <span
             className="font-[family-name:var(--font-orbitron)] text-xs font-700 tracking-[0.2em] uppercase text-white/80 group-hover:text-white transition-colors"
@@ -40,7 +40,7 @@ export default function Nav() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="font-[family-name:var(--font-orbitron)] text-[0.65rem] font-600 tracking-[0.15em] uppercase text-[#4a4a7a] hover:text-[#00f5ff] hover:glow-cyan transition-all duration-200"
+                className="font-[family-name:var(--font-orbitron)] text-[0.65rem] font-600 tracking-[0.15em] uppercase text-[#4a4a7a] hover:text-[#00f5ff] transition-colors duration-200"
               >
                 {link.label}
               </Link>
