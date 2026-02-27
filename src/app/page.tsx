@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import HeroText from "@/components/HeroText";
 import Link from "next/link";
 
 /* ─── Data ─────────────────────────────────────────────── */
@@ -81,16 +82,11 @@ export default function Home() {
           {/* Retrowave perspective grid floor */}
           <div className="retro-grid-floor" />
 
-          <div className="max-w-7xl mx-auto w-full relative z-10">
-            <h1
+          <div className="max-w-7xl mx-auto w-full relative z-10 text-center">
+            <HeroText
               className="font-[family-name:var(--font-orbitron)] font-normal uppercase leading-[0.95]"
-              style={{ fontSize: "clamp(2.8rem, 9vw, 8rem)", color: "#e8e4de" }}
-            >
-              <span className="block">Vi designar</span>
-              <span className="block">upplevelser</span>
-              <span className="block">som spelar</span>
-              <span className="block">roll<span className="cursor" /></span>
-            </h1>
+              style={{ fontSize: "clamp(1.8rem, 5vw, 4rem)", color: "#e8e4de" }}
+            />
           </div>
         </section>
 
