@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 
 const LINES = ["Vi designar", "upplevelser", "som spelar", "roll"];
-const CHAR_DELAY = 55;  // ms per character
-const LINE_PAUSE = 180; // ms pause before starting next line
+const CHAR_DELAY = 28;
+const LINE_PAUSE = 100;
 
 export default function HeroText({
   className,
@@ -36,7 +36,6 @@ export default function HeroText({
       return () => clearTimeout(t);
     }
 
-    // Line finished — pause then move to next
     const t = setTimeout(() => {
       if (activeLine < LINES.length - 1) {
         setActiveLine((l) => l + 1);
@@ -50,13 +49,18 @@ export default function HeroText({
 
   return (
     <h1 className={className} style={style}>
-      {LINES.map((_, i) => (
-        <span key={i} className="block">
-          {displayed[i]}
-          {/* Show cursor on active line while typing, and on last line when done */}
-          {(i === activeLine && !done) || (done && i === LINES.length - 1) ? (
-            <span className="cursor" />
-          ) : null}
+      {LINES.map((line, i) => (
+        <span key={i} className="block relative">
+          {/* Full line rendered invisibly to reserve the exact space */}
+          <span className="invisible">{line}</span>
+
+          {/* Typed characters overlaid on top */}
+          <span className="absolute left-0 top-0">
+            {displayed[i]}
+            {(i === activeLine && !done) || (done && i === LINES.length - 1) ? (
+              <span className="cursor" />
+            ) : null}
+          </span>
         </span>
       ))}
     </h1>
