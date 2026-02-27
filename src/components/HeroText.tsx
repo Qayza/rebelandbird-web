@@ -49,20 +49,21 @@ export default function HeroText({
 
   return (
     <h1 className={className} style={style}>
-      {LINES.map((line, i) => (
-        <span key={i} className="block relative">
-          {/* Full line rendered invisibly to reserve the exact space */}
-          <span className="invisible">{line}</span>
+      {LINES.map((line, i) => {
+        const typed = displayed[i];
+        const remaining = line.slice(typed.length);
+        const showCursor =
+          (i === activeLine && !done) || (done && i === LINES.length - 1);
 
-          {/* Typed characters overlaid on top */}
-          <span className="absolute inset-0 text-center">
-            {displayed[i]}
-            {(i === activeLine && !done) || (done && i === LINES.length - 1) ? (
-              <span className="cursor" />
-            ) : null}
+        return (
+          <span key={i} className="block">
+            {typed}
+            {showCursor && <span className="cursor" />}
+            {/* Invisible remainder keeps the line width stable */}
+            <span className="invisible">{remaining}</span>
           </span>
-        </span>
-      ))}
+        );
+      })}
     </h1>
   );
 }
