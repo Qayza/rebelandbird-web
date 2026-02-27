@@ -55,7 +55,7 @@ export default function HeroText({
           <span className="invisible">{line}</span>
 
           {/* Typed characters overlaid on top */}
-          <span className="absolute left-0 top-0">
+          <span className="absolute inset-0 text-center">
             {displayed[i]}
             {(i === activeLine && !done) || (done && i === LINES.length - 1) ? (
               <span className="cursor" />
