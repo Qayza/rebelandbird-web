@@ -58,7 +58,7 @@ export default function HeroText({
         return (
           <span key={i} className="block">
             {typed}
-            {showCursor && <span className="cursor" />}
+            <span className={showCursor ? "cursor" : "cursor-placeholder"} />
             {/* Invisible remainder keeps the line width stable */}
             <span className="invisible">{remaining}</span>
           </span>
