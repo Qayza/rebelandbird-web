@@ -76,22 +76,21 @@ export default function Home() {
       <main>
 
         {/* ── HERO ─────────────────────────────────────── */}
-        <section className="scanlines relative min-h-screen flex flex-col justify-end px-6 pb-24 pt-32 overflow-hidden">
+        <section className="scanlines relative min-h-screen flex flex-col justify-center px-6 overflow-hidden">
 
           {/* Retrowave perspective grid floor */}
           <div className="retro-grid-floor" />
 
           <div className="max-w-7xl mx-auto w-full relative z-10">
             <h1
-              className="font-[family-name:var(--font-orbitron)] font-black uppercase leading-[1.05] mb-6"
-              style={{ fontSize: "clamp(1.8rem, 5.5vw, 5rem)", color: "#ff2d78" }}
+              className="font-[family-name:var(--font-orbitron)] font-normal uppercase leading-[0.95]"
+              style={{ fontSize: "clamp(2.8rem, 9vw, 8rem)", color: "#e8e4de" }}
             >
-              Agentic first. Mänsklig strategi.<br />
-              Omänsklig hastighet<span className="cursor" />
+              <span className="block">Vi designar</span>
+              <span className="block">upplevelser</span>
+              <span className="block">som spelar</span>
+              <span className="block">roll<span className="cursor" /></span>
             </h1>
-            <p className="text-white/60 text-lg">
-              Vi är Rebel and Bird
-            </p>
           </div>
         </section>
 
