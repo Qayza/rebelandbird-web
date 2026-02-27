@@ -4,99 +4,106 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const links = [
-  { label: "Om oss",    href: "/om-oss" },
-  { label: "Expertis",  href: "/expertis" },
-  { label: "Uppdrag",   href: "/vara-uppdrag" },
-  { label: "Kontakt",   href: "/kontakt" },
+const menuLinks = [
+  { label: "Hem",        href: "/" },
+  { label: "Erbjudande", href: "/vart-erbjudande" },
+  { label: "Uppdrag",    href: "/vara-uppdrag" },
+  { label: "Om oss",     href: "/om-oss" },
+  { label: "Blogg",      href: "/blogg" },
+  { label: "Jobba här",  href: "/lediga-rebeller", external: true },
+  { label: "Kontakt",    href: "/kontakt" },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#1e1e4a] bg-[#05050f]/90 backdrop-blur-md">
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between">
+        <Link href="/" className="relative z-50">
           <Image
             src="/logo.svg"
             alt="Rebel and Bird"
-            width={32}
-            height={21}
-            className="opacity-90"
+            width={36}
+            height={24}
+            className="invert"
           />
-          <span
-            className="font-[family-name:var(--font-orbitron)] text-xs font-700 tracking-[0.2em] uppercase text-white/80 group-hover:text-white transition-colors"
-          >
-            Rebel&nbsp;&amp;&nbsp;Bird
-          </span>
         </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="font-[family-name:var(--font-orbitron)] text-[0.65rem] font-600 tracking-[0.15em] uppercase text-[#4a4a7a] hover:text-[#00f5ff] transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-3 relative z-50">
+          <Link
+            href="/kontakt"
+            className="font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.12em] uppercase px-4 py-2 border border-white/30 text-white hover:border-[#ff2d78] hover:text-[#ff2d78] transition-colors"
+          >
+            Kontakt
+          </Link>
+          <button
+            onClick={() => setOpen(!open)}
+            className="font-[family-name:var(--font-orbitron)] text-[0.65rem] tracking-[0.12em] uppercase px-4 py-2 border border-white/30 text-white hover:border-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            {open ? "Stäng" : "Meny"}
+          </button>
+        </div>
+      </header>
 
-        {/* Desktop CTA */}
-        <a
-          href="/kontakt"
-          className="hidden md:inline-flex btn-arcade btn-arcade-pink text-xs"
-        >
-          <span>▶</span> Starta uppdrag
-        </a>
-
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden flex flex-col gap-[5px] p-2"
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block w-6 h-px bg-white transition-all duration-200 ${open ? "rotate-45 translate-y-[6px]" : ""}`}
-          />
-          <span
-            className={`block w-6 h-px bg-white transition-all duration-200 ${open ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block w-6 h-px bg-white transition-all duration-200 ${open ? "-rotate-45 -translate-y-[6px]" : ""}`}
-          />
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
+      {/* Full-screen overlay menu */}
       {open && (
-        <div className="md:hidden border-t border-[#1e1e4a] bg-[#05050f]/95 backdrop-blur-md">
-          <ul className="px-6 py-6 flex flex-col gap-6">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="font-[family-name:var(--font-orbitron)] text-sm font-700 tracking-[0.15em] uppercase text-white/70 hover:text-[#ff2d78]"
-                >
-                  ▶ {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a href="/kontakt" className="btn-arcade btn-arcade-pink w-full justify-center text-xs">
-                Starta uppdrag
+        <div className="fixed inset-0 z-40 bg-[#05050f]/97 backdrop-blur-sm flex flex-col justify-center px-8">
+          {/* Grid background inside overlay */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: "linear-gradient(rgba(0,245,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.06) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+          />
+          <nav className="relative max-w-7xl mx-auto w-full">
+            <ul className="flex flex-col gap-2">
+              {menuLinks.map((link, i) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="group flex items-baseline gap-4 py-3 border-b border-[#1e1e4a] hover:border-[#ff2d78] transition-colors"
+                  >
+                    <span className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.2em] text-[#4a4a7a] w-8">
+                      0{i + 1}
+                    </span>
+                    <span
+                      className="font-[family-name:var(--font-orbitron)] font-bold uppercase text-white/70 group-hover:text-white transition-colors"
+                      style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}
+                    >
+                      {link.label}
+                    </span>
+                    {link.external && (
+                      <span className="text-[#4a4a7a] text-sm self-start mt-2">↗</span>
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-12 flex gap-6">
+              <a
+                href="https://www.instagram.com/rebelandbird/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.2em] text-[#4a4a7a] hover:text-white transition-colors uppercase"
+              >
+                Instagram
               </a>
-            </li>
-          </ul>
+              <a
+                href="https://www.linkedin.com/company/rebelandbird"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-[family-name:var(--font-orbitron)] text-[0.6rem] tracking-[0.2em] text-[#4a4a7a] hover:text-white transition-colors uppercase"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
